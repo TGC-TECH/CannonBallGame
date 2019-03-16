@@ -58,28 +58,27 @@ void loop() {
   if (oneState == HIGH) {
     // turn LED on:
     if(oneled < 3) {oneled++; }
-    delay(75); }
+    delay(190); }
 
      if (twoState == HIGH) {
     // turn LED on:
     if(twoled < 3) {twoled++; }
-    delay(75); }
+    delay(190); }
 
     if (threeState == HIGH) {
     // turn LED on:
     if(threeled < 3) {threeled++; }
-    delay(75); }
+    delay(190); }
 
      if (fourState == HIGH) {
     // turn LED on:
-    if(twoled < oneled && threeled < oneled && oneled > 0) {oneled--;digitalWrite(error, HIGH); delay(100);digitalWrite(error, LOW); }
-    else if(threeled < twoled && oneled < twoled && twoled > 0) {twoled--; digitalWrite(error, HIGH); delay(100);digitalWrite(error, LOW);}
-     else if(twoled < oneled && oneled < threeled && threeled > 0) {threeled--; digitalWrite(error, HIGH); delay(100);digitalWrite(error, LOW);}
-     else { 
-      for(int i = 0; i < 5; i++){
-      digitalWrite(error, HIGH); delay(20);digitalWrite(error, LOW); }}
-    
-    delay(75); }
+    if(twoled <= oneled && threeled <= oneled && oneled > 0) {oneled--;digitalWrite(error, HIGH); delay(100);digitalWrite(error, LOW); delay(100); }
+    else if(threeled <= twoled && oneled <= twoled && twoled > 0) {twoled--; digitalWrite(error, HIGH); delay(190);digitalWrite(error, LOW); delay(100);}
+     else if(twoled <= oneled && oneled <= threeled && threeled > 0) {threeled--; digitalWrite(error, HIGH); delay(190);digitalWrite(error, LOW); delay(100);}
+     else {
+      for(int i = 0; i < 4; i++){
+      digitalWrite(error, HIGH); delay(25);digitalWrite(error, LOW); delay(25); }}}
+      
      if (oneled == 0) {
     digitalWrite(onepin1, LOW);
     digitalWrite(onepin2, LOW);
@@ -140,7 +139,7 @@ void loop() {
     digitalWrite(threepin2, HIGH);
     digitalWrite(threepin3, LOW);  
   }
-   if (threeled == 3) {
+ if (threeled == 3) {
     digitalWrite(threepin1, HIGH);
     digitalWrite(threepin2, HIGH);
     digitalWrite(threepin3, HIGH);  
@@ -149,4 +148,5 @@ void loop() {
   
 
   
+
 }
